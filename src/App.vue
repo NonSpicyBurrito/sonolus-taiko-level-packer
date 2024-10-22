@@ -129,6 +129,7 @@ const onClose = () => {
                     TJA: 'tja',
                     OSU: 'osu',
                 }"
+                required
             />
 
             <VFileField
@@ -136,6 +137,7 @@ const onClose = () => {
                 v-model="chartTja"
                 label="Chart (TJA)"
                 accept=".tja,.txt"
+                :required="format === 'tja'"
             />
 
             <VNumberField
@@ -143,6 +145,7 @@ const onClose = () => {
                 v-model="courseId"
                 label="Course ID"
                 placeholder="Enter chart course id..."
+                :required="format === 'tja'"
             />
 
             <VFileField
@@ -150,9 +153,15 @@ const onClose = () => {
                 v-model="chartOsu"
                 label="Chart (OSU)"
                 accept=".osu,.txt"
+                :required="format === 'osu'"
             />
 
-            <VNumberField v-model="offset" label="Offset" placeholder="Enter level offset..." />
+            <VNumberField
+                v-model="offset"
+                label="Offset"
+                placeholder="Enter level offset..."
+                required
+            />
 
             <VTextAreaField
                 v-model="description"
